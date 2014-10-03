@@ -1,0 +1,28 @@
+﻿<Window x:Name="mainWindow" x:Class="UIDropScript.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:settings="clr-namespace:UIDropScript.Properties"
+        xmlns:local="clr-namespace:UIDropScript"
+        
+            Title="DropScript" 
+            Height="{Binding Source={x:Static settings:Settings.Default}, Path=Height, Mode=TwoWay}"
+            Width="{Binding Source={x:Static settings:Settings.Default}, Path=Width, Mode=TwoWay}" 
+            WindowStyle="None" AllowsTransparency="True" 
+            WindowStartupLocation="Manual"  
+            ShowInTaskbar="False" 
+            Topmost="False"
+            KeyDown="keyDownHandler" AllowDrop="True">
+    <Window.Background>
+        <SolidColorBrush Opacity="0.5" Color="White"/>
+    </Window.Background>
+    <Grid>
+        <DockPanel Margin="3,3,3,30"  LastChildFill="True" Grid.ColumnSpan="2">
+            <Frame x:Name="topFrame" Margin="3,3,3,3" NavigationUIVisibility="Visible"/>
+        </DockPanel>
+        <Grid Margin="3,0,-3,0">
+            <Label x:Name="lbSettings" Content="Settings" VerticalAlignment="Bottom" HorizontalAlignment="left" MouseDown="settingsMouseDownHandler" Margin="2,0,0,1"/>
+            <Label x:Name="lbAbout" Content="Help" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,3,-1" MouseDown="aboutMouseDownHandler"/>
+            <Label x:Name="lbExit" Content="Exit" VerticalAlignment="Bottom" HorizontalAlignment="Right" MouseDown="lbExitMouseDownHandler" Margin="0,0,110,2"/>
+        </Grid>
+    </Grid>
+</Window>

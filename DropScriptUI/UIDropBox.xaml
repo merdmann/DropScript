@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="UIDropScript.UIDropBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:resources="clr-namespace:UIDropScript.Properties"
+             xmlns:helper="clr-namespace:UIDropScript.Helper"
+             xmlns:local="clr-namespace:UIDropScript"
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="80" d:DesignWidth="80"
+             AllowDrop="True" Drop="dropHandler">
+    <Grid Margin="5,5,5,5">
+        <Border  VerticalAlignment="Center" 
+                 HorizontalAlignment="Center" BorderThickness="1" CornerRadius="20,20,20,20" 
+                 BorderBrush="Black" Background="Khaki">
+            <Rectangle x:Name="dropBox"  
+                       HorizontalAlignment="Center" Height="70" VerticalAlignment="Center" Width="70" Margin="5,5,5,5" 
+                       Drop="dropHandler" 
+                       MouseRightButtonDown="onMouseRightButtonDown" MouseRightButtonUp="onMouseRightButtonUp" />
+            <Border.ContextMenu>
+                <ContextMenu Name="myContextMenu" >
+                    <MenuItem Header="View" Command="local:View" />
+                    <MenuItem Header="Clear" Command="local:Reset"/>
+                </ContextMenu>
+            </Border.ContextMenu>
+        </Border>
+        <Label x:Name="keyLabel" HorizontalAlignment="Left" Height="25" Margin="-22,65,0,0" VerticalAlignment="Top" Width="80" Content="{Binding Value}" RenderTransformOrigin="0.512,0.52"/>
+
+    </Grid>
+</UserControl>
